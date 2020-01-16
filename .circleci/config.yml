@@ -12,9 +12,9 @@ jobs:
           key: deps9-{{ .Branch }}-{{ checksum "Pipfile.lock" }}
       - run:
           command: |  # use pipenv to install dependencies
+            sudo pip install --upgrade pip
             sudo pip install pipenv
             pipenv install
-            pip install --upgrade pip
             sudo ./ptf --update-all -y
       - save_cache:
           key: deps9-{{ .Branch }}-{{ checksum "Pipfile.lock" }}
