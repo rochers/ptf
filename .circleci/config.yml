@@ -22,9 +22,8 @@ jobs:
       - run:   
           name: ptf exploitation
           command: |
-            sudo ./ptf | use modules/exploitation/install_update_all  
-            sudo ./ptf | exit 
-            sudo ./ptf | exit
+            sudo ./ptf
+            use modules/exploitation/install_update_all 
       - save_cache:
           paths:
             - ./venv
