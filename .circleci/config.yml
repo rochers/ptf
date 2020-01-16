@@ -19,9 +19,8 @@ jobs:
             python3 -m venv venv
             . venv/bin/activate
             pip install -r requirements.txt
-      - run: |
-          sudo ./ptf | poop
-
+      - run: >
+          sudo ./ptf
       - save_cache:
           paths:
             - ./venv
