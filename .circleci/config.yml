@@ -22,7 +22,9 @@ jobs:
       - run:   
           name: ptf exploitation
           command: |
-            sudo ./ptf <<EOF\nuse modules/exploitation/install_update_all \nEOF
+            sudo ./ptf <<EOF
+            use modules/exploitation/install_update_all 
+            EOF
 
       - save_cache:
           paths:
