@@ -20,7 +20,7 @@ jobs:
             . venv/bin/activate
             pip install -r requirements.txt
       - run: |
-          sudo ./ptf --update-all -y
+          poop | sudo ./ptf
 
       - save_cache:
           paths:
