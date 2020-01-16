@@ -9,13 +9,18 @@ jobs:
       - run: sudo chown -R circleci:circleci /usr/local/bin
       - run: sudo chown -R circleci:circleci /usr/local/lib/python3.6/site-packages
       - restore_cache:  # ensure this step occurs *before* installing dependencies
-          key: deps9-{{ .Branch }}-{{ checksum "Pipfile.lock" }}
+          keys:
+            - v1-dependencies-{{ checksum "requirements.txt" }}
+            # fallback to using the latest cache if no exact match is found
+            - v1-dependencies-
       - run:
-          command: |  # use pipenv to install dependencies
-            sudo pip install --upgrade pip
-            sudo pip install pipenv
-            pipenv install
-            pipenv shell
+          name: install dependencies
+          command: |
+            python3 -m venv venv
+            . venv/bin/activate
+            pip install -r requirements.txt
+          name: ptf exploitation
+          command: |
             sudo ./ptf | use modules/exploitation/install_update_all  
             sudo ./ptf | exit 
             sudo ./ptf | exit
