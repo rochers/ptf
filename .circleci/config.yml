@@ -22,7 +22,7 @@ jobs:
       - run:   
           name: ptf exploitation
           command: |
-            sudo ./ptf --use-exploitation
+            use modules/exploitation/install_update_all \nyes\nexit\nexit | sudo ./ptf
 
       - save_cache:
           paths:

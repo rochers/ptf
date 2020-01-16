@@ -89,8 +89,6 @@ if __name__ == "__main__":
                 src.framework.handle_prompt("use modules/install_update_all")
         elif "--update-installed" in sys.argv[1:]:
             src.framework.handle_prompt("use modules/update_installed")
-        elif "--use-exploitation" in sys.argv[1:]:
-            src.framework.handle_prompt("use modules/exploitation/install_update_all ")
         else:
             # or just ask what you want
             src.framework.mainloop()
