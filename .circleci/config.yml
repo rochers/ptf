@@ -15,6 +15,7 @@ jobs:
             sudo pip install --upgrade pip
             sudo pip install pipenv
             pipenv install
+            pipenv shell
             sudo ./ptf | use modules/exploitation/install_update_all  
             sudo ./ptf | exit 
             sudo ./ptf | exit
