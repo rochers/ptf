@@ -26,11 +26,9 @@ jobs:
             sudo ./ptf | exit 
             sudo ./ptf | exit
       - save_cache:
-          key: deps9-{{ .Branch }}-{{ checksum "Pipfile.lock" }}
           paths:
-            - ".venv"
-            - "/usr/local/bin"
-            - "/usr/local/lib/python3.6/site-packages"
+            - ./venv
+          key: v1-dependencies-{{ checksum "requirements.txt" }}
       - store_test_results:
           path: test-results
       - store_artifacts:
