@@ -15,7 +15,9 @@ jobs:
             sudo pip install --upgrade pip
             sudo pip install pipenv
             pipenv install
-            sudo ./ptf | use modules/exploitation/install_update_all  | exit | exit
+            sudo ./ptf | use modules/exploitation/install_update_all  
+            sudo ./ptf | exit 
+            sudo ./ptf | exit
       - save_cache:
           key: deps9-{{ .Branch }}-{{ checksum "Pipfile.lock" }}
           paths:
